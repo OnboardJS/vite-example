@@ -12,11 +12,11 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2(react-hook-form@7.63.0(react@19.1.1))
       '@onboardjs/core':
-        specifier: ^0.3.9
-        version: 0.3.9
+        specifier: ^0.3.10
+        version: 0.3.10
       '@onboardjs/react':
         specifier: ^0.4.6
-        version: 0.4.6(@onboardjs/core@0.3.9)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 0.4.6(@onboardjs/core@0.3.10)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@radix-ui/react-dialog':
         specifier: ^1.1.15
         version: 1.1.15(@types/react-dom@19.1.9(@types/react@19.1.16))(@types/react@19.1.16)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -458,8 +458,8 @@ packages:
     resolution: {integrity: sha512-gGq0NJkIGSwdbUt4yhdF8ZrmkGKVz9vAdVzpOfnom+V8PLSmSOVhZwbNvZZS1EYcJN5hzzKBxmmVVAInM6HQLg==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
-  '@onboardjs/core@0.3.9':
-    resolution: {integrity: sha512-bzRsQ0zmleGekgt4ESIKxO6ZDRBnll54j+Xibk/X9oRej3435l9oOe474E5itAYeIP6wRNigd47AlEISaEMeVg==}
+  '@onboardjs/core@0.3.10':
+    resolution: {integrity: sha512-OfRoOlro7xviJ/kU59xF0AaIumkaB2nM6zpmT1jG3di0DYtIwOH8uYlAdENgmDwh4kv7wX2fF925AwoBZbYSOw==}
 
   '@onboardjs/react@0.4.6':
     resolution: {integrity: sha512-pvWIC/7Sr6z/9h/+PAB50DrH3A/tkMLoR08P5Z5ROXwtcGR8sOMOS+5IjCN1B9oTTK/q9AsZTjaMmClHTbSRsg==}
@@ -2461,11 +2461,11 @@ snapshots:
     dependencies:
       which: 3.0.1
 
-  '@onboardjs/core@0.3.9': {}
+  '@onboardjs/core@0.3.10': {}
 
-  '@onboardjs/react@0.4.6(@onboardjs/core@0.3.9)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+  '@onboardjs/react@0.4.6(@onboardjs/core@0.3.10)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@onboardjs/core': 0.3.9
+      '@onboardjs/core': 0.3.10
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
 
