@@ -1,13 +1,22 @@
+import { WorkspaceStep } from "@/components/workspace-step";
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "OnboardJS - React Router Example" },
+    {
+      name: "description",
+      content: "An example of using OnboardJS with React Router",
+    },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <div className="bg-background flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
+      <div className="w-full max-w-md">
+        <WorkspaceStep />
+      </div>
+    </div>
+  );
 }
