@@ -1,5 +1,3 @@
-"use client";
-
 import { CircleQuestionMarkIcon, GalleryVerticalEnd } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -120,7 +118,7 @@ export function WorkspaceStep({ className }: React.ComponentProps<"div">) {
   }
 
   return (
-    <div className={cn("flex flex-col gap-6", className)}>
+    <div className={cn("flex flex-col gap-6 max-w-md", className)}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="flex flex-col gap-6">
