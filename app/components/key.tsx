@@ -21,6 +21,7 @@ export function Key({ name, width = 36, className, children }: KeyProps) {
         "h-20",
         "flex flex-col items-center justify-center gap-0.5 px-1 py-px",
         "rounded-sm bg-white bg-linear-to-t from-black/3 shadow-2xs ring-1 ring-black/10",
+        "dark:bg-gray-900 dark:from-white/3 dark:ring-white/10",
         "[:where(&_svg)]:h-3.5 [:where(&_svg)]:fill-gray-600"
       )}
     >
