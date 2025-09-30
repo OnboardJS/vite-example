@@ -16,7 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "./ui/card";
+import { Card, CardContent } from "../ui/card";
 import {
   Select,
   SelectContent,
@@ -25,6 +25,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState, useRef, useEffect } from "react";
+import { useOnboarding } from "@onboardjs/react";
 
 const formSchema = z.object({
   workspace: z
@@ -46,10 +47,9 @@ const formSchema = z.object({
   region: z.enum(["us", "eu"]),
 });
 
-export function WorkspaceStep({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
+export function WorkspaceStep({ className }: React.ComponentProps<"div">) {
+  const { updateContext, next } = useOnboarding();
+
   const [showInfo, setShowInfo] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
@@ -111,11 +111,16 @@ export function WorkspaceStep({
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    updateContext({
+      flowData: {
+        ...values,
+      },
+    });
+    next();
   }
 
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
+    <div className={cn("flex flex-col gap-6", className)}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="flex flex-col gap-6">
