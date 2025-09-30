@@ -7,6 +7,12 @@ import {
   CommandItem,
   CommandList,
 } from "./ui/command";
+import {
+  BoxIcon,
+  ReplaceIcon,
+  UserRoundPenIcon,
+  UserStarIcon,
+} from "lucide-react";
 
 type CommandMenuProps = {
   workspace?: string;
@@ -39,10 +45,21 @@ export function CommandMenu({ workspace, onOpenChange }: CommandMenuProps) {
       <CommandInput placeholder="Type a command or search..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Suggestions">
-          <CommandItem>Calendar</CommandItem>
-          <CommandItem>Search Emoji</CommandItem>
-          <CommandItem>Calculator</CommandItem>
+        <CommandGroup heading="Issues">
+          <CommandItem accessKey="A" onSelect={() => handleOpenChange(false)}>
+            <UserRoundPenIcon /> Assign to...
+          </CommandItem>
+          <CommandItem accessKey="I" onSelect={() => handleOpenChange(false)}>
+            <UserStarIcon /> Assign to me
+          </CommandItem>
+          <CommandItem accessKey="C" onSelect={() => handleOpenChange(false)}>
+            <ReplaceIcon /> Change status...
+          </CommandItem>
+        </CommandGroup>
+        <CommandGroup heading="Projects">
+          <CommandItem accessKey={"P"} onSelect={() => handleOpenChange(false)}>
+            <BoxIcon /> Create new project...
+          </CommandItem>
         </CommandGroup>
       </CommandList>
     </CommandDialog>
