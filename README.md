@@ -135,29 +135,7 @@ export default defineConfig({
 Implement remote persistence of onboarding state by integrating with your backend and database.
 Use the `customOnDataLoad` and `customOnDataPersist` props of the `OnboardingProvider` to handle loading and saving state.
 
-```tsx
-// Save action from .server
-import {
-  saveOnboardingData,
-  loadOnboardingData,
-} from "~/.server/onboarding/actions";
-
-export function OnboardJSWrapper({ children }) {
-  return (
-    <OnboardingProvider
-      steps={steps}
-      customOnDataLoad={async () => {
-        return await loadOnboardingData();
-      }}
-      customOnDataPersist={async (data) => {
-        await saveOnboardingData(data);
-      }}
-    >
-      {children}
-    </OnboardingProvider>
-  );
-}
-```
+See: [OnboardingWrapper.tsx](app/components/onboardjs-wrapper.tsx)
 
 ## Contributing
 
