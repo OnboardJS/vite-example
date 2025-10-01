@@ -1,87 +1,183 @@
-# Welcome to React Router!
+# OnboardJS Vite Example with ShadCN UI
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A comprehensive example demonstrating the integration of OnboardJS with Vite and React Router for building interactive, multi-step onboarding experiences in React applications. This example is heavily inspired by [Linear](https://linear.app/)'s onboarding flow.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Overview
+
+This project showcases how to leverage OnboardJS, a powerful React library for managing complex onboarding flows, alongside modern web development tools like Vite for fast builds and React Router for client-side routing. It provides a complete, production-ready template for creating guided user experiences with multiple steps, form handling, and theme support.
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- 🚀 **Fast Development**: Powered by Vite for lightning-fast hot module replacement and optimized builds
+- ⚡️ **Modern Routing**: React Router v7 for seamless client-side navigation and data loading
+- 🎯 **Onboarding Flows**: OnboardJS for structured, step-by-step user onboarding with state management
+- 🎨 **Theming**: Built-in dark/light mode support with next-themes
+- 📱 **Responsive UI**: TailwindCSS with Radix UI components for accessible, modern interfaces
+- � **TypeScript**: Full TypeScript support for type safety and better developer experience
+- 📋 **Form Handling**: React Hook Form with Zod validation for robust form interactions
+- � **Notifications**: Sonner for elegant toast notifications
+- 🐳 **Docker Ready**: Containerized deployment support
+
+## Tech Stack
+
+- **Framework**: React 19 with TypeScript
+- **Build Tool**: Vite
+- **Routing**: React Router v7
+- **Onboarding**: OnboardJS (@onboardjs/core, @onboardjs/react)
+- **Styling**: TailwindCSS v4
+- **UI Components**: Radix UI primitives
+- **Forms**: React Hook Form + Zod
+- **Icons**: Lucide React
+- **Theming**: next-themes
+
+## Onboarding Steps
+
+The example includes a complete onboarding flow with the following steps:
+
+1. **Workspace Setup**: Initial configuration and preferences
+2. **Welcome**: Introduction to the application
+3. **Style Choice**: Theme and appearance customization
+4. **Command Interface**: Interactive command-line style interactions
+5. **GitHub Integration**: Repository and collaboration setup
+6. **Team Invites**: User invitation and team building
+7. **Subscription**: Final setup and subscription options
 
 ## Getting Started
 
+### Prerequisites
+
+- Node.js 22+ and pnpm (recommended) or npm
+
 ### Installation
 
-Install the dependencies:
+Clone the repository and install dependencies:
 
 ```bash
-npm install
+git clone https://github.com/OnboardJS/vite-example.git
+cd vite-example
+pnpm install
 ```
 
 ### Development
 
-Start the development server with HMR:
+Start the development server with hot reload:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+The application will be available at `http://localhost:5173`.
 
-## Building for Production
+### Building for Production
 
-Create a production build:
+Create an optimized production build:
 
 ```bash
-npm run build
+pnpm build
 ```
 
-## Deployment
+### Preview Production Build
 
-### Docker Deployment
-
-To build and run using Docker:
+Serve the production build locally:
 
 ```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+pnpm start
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
+## Project Structure
 
 ```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+├── app/
+│   ├── components/
+│   │   ├── steps/          # Individual onboarding step components
+│   │   ├── ui/             # ShadCN UI components
+│   │   └── onboarding-ui.tsx  # Main onboarding wrapper
+│   ├── hooks/              # Custom React hooks
+│   ├── lib/
+│   │   ├── steps.ts        # Step configuration
+│   │   └── utils.ts        # Utility functions
+│   └── routes/             # React Router route components
+├── public/                 # Static assets
+└── build/                  # Production build output
 ```
 
-## Styling
+## Usage
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+### Configuration Caveats
+
+Ensure to include the following snippet in your `vite.config.ts`:
+
+```ts
+export default defineConfig({
+  plugins: [...],
+  ssr: {
+    noExternal: ["@onboardjs/react", "@onboardjs/core"],
+  },
+});
+```
+
+### Integrating OnboardJS
+
+1. **Configure Steps**: Define your onboarding steps in `app/lib/steps.ts`
+2. **Create Step Components**: Build individual step components in `app/components/steps/`
+3. **Wrap with OnboardingUI**: Use the `OnboardingUI` component in your routes
+4. **Manage State**: OnboardJS handles step navigation and state automatically
+
+### Customization
+
+- **Themes**: Modify themes in `app/components/theme-provider.tsx`
+- **Styling**: Customize with TailwindCSS classes
+- **Steps**: Add, remove, or modify steps in the steps configuration
+- **Validation**: Update Zod schemas for form validation
+
+### Persistence
+
+Implement remote persistence of onboarding state by integrating with your backend and database.
+Use the `customOnDataLoad` and `customOnDataPersist` props of the `OnboardingProvider` to handle loading and saving state.
+
+```tsx
+// Save action from .server
+import {
+  saveOnboardingData,
+  loadOnboardingData,
+} from "~/.server/onboarding/actions";
+
+export function OnboardJSWrapper({ children }) {
+  return (
+    <OnboardingProvider
+      steps={steps}
+      customOnDataLoad={async () => {
+        return await loadOnboardingData();
+      }}
+      customOnDataPersist={async (data) => {
+        await saveOnboardingData(data);
+      }}
+    >
+      {children}
+    </OnboardingProvider>
+  );
+}
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Make your changes and add tests
+4. Commit your changes: `git commit -am 'Add new feature'`
+5. Push to the branch: `git push origin feature/your-feature`
+6. Submit a pull request
+
+## License
+
+This project is part of the OnboardJS examples and follows the same licensing terms as the main OnboardJS library.
+
+## Related
+
+- [OnboardJS Documentation](https://onboardjs.com/)
+- [React Router Documentation](https://reactrouter.com/)
+- [Vite Documentation](https://vitejs.dev/)
 
 ---
 
-Built with ❤️ using React Router.
+Built with ❤️ using OnboardJS, Vite, and React Router.

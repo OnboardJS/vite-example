@@ -23,7 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState, useRef, useEffect } from "react";
-import { useOnboarding } from "@onboardjs/react";
+import { useOnboarding, type StepComponentProps } from "@onboardjs/react";
 
 const formSchema = z.object({
   workspace: z
@@ -45,7 +45,10 @@ const formSchema = z.object({
   region: z.enum(["us", "eu"]),
 });
 
-export function WorkspaceStep({ className }: React.ComponentProps<"div">) {
+export function WorkspaceStep({
+  className,
+  context, // Context is passed by OnboardJS and contains persisted data
+}: React.ComponentProps<"div"> & StepComponentProps) {
   const { updateContext, next } = useOnboarding();
 
   const [showInfo, setShowInfo] = useState(false);
@@ -102,9 +105,10 @@ export function WorkspaceStep({ className }: React.ComponentProps<"div">) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      workspace: "",
-      url: "",
-      region: "eu",
+      // Load initial values from persisted context if available
+      workspace: context.flowData?.workspace || "",
+      url: context.flowData?.url || "",
+      region: context.flowData?.region || "eu",
     },
   });
 
