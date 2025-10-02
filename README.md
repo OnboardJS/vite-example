@@ -6,24 +6,12 @@ A comprehensive example demonstrating the integration of OnboardJS with Vite and
 
 This project showcases how to leverage OnboardJS, a powerful React library for managing complex onboarding flows, alongside modern web development tools like Vite for fast builds and React Router for client-side routing. It provides a complete, production-ready template for creating guided user experiences with multiple steps, form handling, and theme support.
 
-## Features
-
-- 🚀 **Fast Development**: Powered by Vite for lightning-fast hot module replacement and optimized builds
-- ⚡️ **Modern Routing**: React Router v7 for seamless client-side navigation and data loading
-- 🎯 **Onboarding Flows**: OnboardJS for structured, step-by-step user onboarding with state management
-- 🎨 **Theming**: Built-in dark/light mode support with next-themes
-- 📱 **Responsive UI**: TailwindCSS with Radix UI components for accessible, modern interfaces
-- � **TypeScript**: Full TypeScript support for type safety and better developer experience
-- 📋 **Form Handling**: React Hook Form with Zod validation for robust form interactions
-- � **Notifications**: Sonner for elegant toast notifications
-- 🐳 **Docker Ready**: Containerized deployment support
-
 ## Tech Stack
 
 - **Framework**: React 19 with TypeScript
 - **Build Tool**: Vite
 - **Routing**: React Router v7
-- **Onboarding**: OnboardJS (@onboardjs/core, @onboardjs/react)
+- **Onboarding**: OnboardJS (`@onboardjs/core`, `@onboardjs/react`)
 - **Styling**: TailwindCSS v4
 - **UI Components**: Radix UI primitives
 - **Forms**: React Hook Form + Zod
@@ -91,14 +79,14 @@ pnpm start
 │   ├── components/
 │   │   ├── steps/          # Individual onboarding step components
 │   │   ├── ui/             # ShadCN UI components
-│   │   └── onboarding-ui.tsx  # Main onboarding wrapper
+│   │   ├── onboarding-ui.tsx  # Main onboarding UI
+│   │   └── onboarding-wrapper.tsx  # Main onboarding wrapper
 │   ├── hooks/              # Custom React hooks
 │   ├── lib/
 │   │   ├── steps.ts        # Step configuration
 │   │   └── utils.ts        # Utility functions
 │   └── routes/             # React Router route components
-├── public/                 # Static assets
-└── build/                  # Production build output
+└── public/                 # Static assets
 ```
 
 ## Usage
