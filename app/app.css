@@ -163,4 +163,18 @@ body {
   .animate-content {
     animation: 0.7s 1.2s both content;
   }
+
+  .animate-button {
+    animation: 0.5s 1.4s both content;
+  }
+
+  .animate-title {
+    animation: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both content;
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .animate {
+    animation: none !important;
+  }
 }

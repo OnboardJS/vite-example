@@ -12,12 +12,14 @@ export function StyleChoice({ className }: React.ComponentProps<"div">) {
   return (
     <div className={cn("flex flex-col", className)}>
       <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-bold mb-3">Choose your style</h1>
-        <p className="text-muted-foreground w-[620px] max-w-[90vw] mb-8">
+        <h1 className="text-2xl font-bold mb-3 animate-title">
+          Choose your style
+        </h1>
+        <p className="text-muted-foreground w-[620px] max-w-[90vw] mb-8 animate-title delay-[0.3s]!">
           Change your theme at any time via the command menu or settings.
         </p>
 
-        <div className="max-w-[90vw] h-[190px] border border-input rounded-lg flex">
+        <div className="max-w-[90vw] h-[190px] border border-input rounded-lg flex animate-title delay-[0.4s]!">
           <div
             className="w-[300px] border-r border-input flex flex-col items-center justify-center"
             role="button"
@@ -50,7 +52,10 @@ export function StyleChoice({ className }: React.ComponentProps<"div">) {
           </div>
         </div>
 
-        <Button className="w-[336px] h-12 mt-12" onClick={() => next()}>
+        <Button
+          className="w-[336px] h-12 mt-12 animate-title delay-[0.5s]!"
+          onClick={() => next()}
+        >
           Continue
         </Button>
       </div>

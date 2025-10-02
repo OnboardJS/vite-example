@@ -12,12 +12,14 @@ export function SubscribeStep({ className }: React.ComponentProps<"div">) {
   return (
     <div className={cn("flex flex-col", className)}>
       <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-bold mb-3">Subscribe to updates</h1>
-        <p className="text-muted-foreground w-[620px] max-w-[90vw] mb-8">
+        <h1 className="text-2xl font-bold mb-3 animate-title">
+          Subscribe to updates
+        </h1>
+        <p className="text-muted-foreground w-[620px] max-w-[90vw] mb-8 animate-title delay-[0.3s]!">
           Linear is constantly evolving. Subscribe to learn about changes.
         </p>
 
-        <div className="max-w-[90vw] w-[564px] border border-input rounded-lg bg-accent/20 p-10 text-left">
+        <div className="max-w-[90vw] w-[564px] border border-input rounded-lg bg-accent/20 p-10 text-left animate-title delay-[0.4s]!">
           <Label className="pb-8 mb-8 border-b border-input flex justify-between w-full">
             <div className="flex flex-col">
               Subscribe to changelog
@@ -68,7 +70,7 @@ export function SubscribeStep({ className }: React.ComponentProps<"div">) {
         </div>
 
         <Button
-          className="w-[336px] h-12 mt-12 transition-colors"
+          className="w-[336px] h-12 mt-12 transition-colors animate-content"
           onClick={() => next()}
           variant={hasChecked ? "default" : "ghost"}
         >

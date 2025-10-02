@@ -64,15 +64,15 @@ export function InviteStep({ className }: React.ComponentProps<"div">) {
   return (
     <div className={cn("flex flex-col", className)}>
       <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-bold mb-3">
+        <h1 className="text-2xl font-bold mb-3 animate-title">
           Invite co-workers to your team
         </h1>
-        <p className="text-muted-foreground w-[620px] max-w-[90vw] mb-8">
+        <p className="text-muted-foreground w-[620px] max-w-[90vw] mb-8 animate-title delay-[0.3s]!">
           Linear is meant to be used with your team. Invite some co-workers to
           test it out with.
         </p>
 
-        <div className="max-w-[90vw] w-[564px] border border-input rounded-lg flex flex-col bg-accent/20 px-6 py-8 text-left">
+        <div className="max-w-[90vw] w-[564px] border border-input rounded-lg flex flex-col bg-accent/20 px-6 py-8 text-left animate-title delay-[0.4s]!">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
@@ -99,7 +99,7 @@ export function InviteStep({ className }: React.ComponentProps<"div">) {
         </div>
 
         <Button
-          className="w-[336px] h-12 mt-12"
+          className="w-[336px] h-12 mt-12 animate-content"
           onClick={() => next()}
           disabled={!sentInvites}
         >
@@ -108,7 +108,7 @@ export function InviteStep({ className }: React.ComponentProps<"div">) {
 
         {!sentInvites && (
           <Button
-            className="w-[336px] h-12 mt-12"
+            className="w-[336px] h-12 mt-12 animate-button"
             onClick={() => next()}
             variant={"ghost"}
           >

@@ -24,7 +24,7 @@ export function WelcomeStep({ className }: React.ComponentProps<"div">) {
         </p>
 
         <Button
-          className="w-[336px] h-12 animate-content delay-[1.4s]! duration-[0.5s]!"
+          className="w-[336px] h-12 animate-button"
           onClick={() => next()}
         >
           Get started

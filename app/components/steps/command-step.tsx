@@ -52,8 +52,10 @@ export function CommandStep({
           </>
         ) : (
           <>
-            <h1 className="text-2xl font-bold mb-3">Meet the command menu</h1>
-            <p className="text-muted-foreground w-[620px] max-w-[90vw] mb-8">
+            <h1 className="text-2xl font-bold mb-3 animate-title">
+              Meet the command menu
+            </h1>
+            <p className="text-muted-foreground w-[620px] max-w-[90vw] mb-8 animate-title delay-[0.3s]!">
               Complete any action in seconds by typing into the command menu.
             </p>
           </>
@@ -62,7 +64,7 @@ export function CommandStep({
         {(!hasOpenedCommand || isCommandOpen) && (
           <div
             className={cn(
-              "max-w-[90vw] w-[600px] h-[190px] border border-input rounded-lg flex p-4",
+              "max-w-[90vw] w-[600px] h-[190px] border border-input rounded-lg flex p-4 animate-title delay-[0.4s]!",
               isCommandOpen ? "opacity-0" : "opacity-100"
             )}
           >
@@ -90,7 +92,7 @@ export function CommandStep({
 
         <Button
           className={cn(
-            "w-[336px] h-12",
+            "w-[336px] h-12 animate-title delay-[0.5s]!",
             !hasOpenedCommand || isCommandOpen ? "mt-12" : ""
           )}
           variant={isCommandOpen || hasOpenedCommand ? "default" : "ghost"}
