@@ -124,11 +124,43 @@ body {
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+@keyframes logo {
+  0% {
+    opacity: 0;
+    transform: scale(5) translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes content {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-logo {
+    animation: 2s cubic-bezier(0.19, 1, 0.22, 1) both logo;
+  }
+
+  .animate-content {
+    animation: 0.7s 1.2s both content;
   }
 }
