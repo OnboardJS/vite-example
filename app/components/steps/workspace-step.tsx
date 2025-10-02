@@ -131,20 +131,20 @@ export function WorkspaceStep({
                 href="#"
                 className="flex flex-col items-center gap-2 font-medium"
               >
-                <div className="flex size-8 items-center justify-center rounded-md animate-content">
+                <div className="flex size-8 items-center justify-center rounded-md animate-content delay-0!">
                   <GalleryVerticalEnd className="size-6" />
                 </div>
                 <span className="sr-only">Acme Inc.</span>
               </a>
-              <h1 className="text-2xl font-bold animate-content">
+              <h1 className="text-2xl font-bold animate-content delay-0!">
                 Create a new workspace
               </h1>
-              <div className="text-center text-sm animate-content">
+              <div className="text-center text-sm animate-content delay-0!">
                 Workspaces are shared environments where your teams can work on
                 projects together.
               </div>
             </div>
-            <Card className="animate-content">
+            <Card className="animate-content delay-[0.2s]!">
               <CardContent>
                 <div className="grid gap-6">
                   <div className="grid gap-6">
@@ -247,7 +247,10 @@ export function WorkspaceStep({
                     )}
                   </div>
 
-                  <Button type="submit" className="w-full animate-button">
+                  <Button
+                    type="submit"
+                    className="w-full animate-button delay-[0.4s]!"
+                  >
                     Create Workspace
                   </Button>
                 </div>
