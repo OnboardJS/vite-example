@@ -93,9 +93,9 @@ export function CommandStep({
         <Button
           className={cn(
             "w-[336px] h-12 animate-title delay-[0.5s]!",
-            !hasOpenedCommand || isCommandOpen ? "mt-12" : ""
+            !hasOpenedCommand ? "mt-12" : ""
           )}
-          variant={isCommandOpen || hasOpenedCommand ? "default" : "ghost"}
+          variant={hasOpenedCommand ? "default" : "ghost"}
           onClick={() => next()}
         >
           Continue
