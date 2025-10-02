@@ -33,9 +33,8 @@ export function OnboardJSWrapper({ children }: PropsWithChildren) {
   return (
     <OnboardingProvider
       steps={steps}
-      localStoragePersistence={{
-        key: "onboarding-context",
-      }}
+      customOnDataLoad={handleLoad}
+      customOnDataPersist={handlePersist}
     >
       {children}
     </OnboardingProvider>
