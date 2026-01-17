@@ -35,6 +35,8 @@ export function OnboardJSWrapper({ children }: PropsWithChildren) {
       steps={steps}
       customOnDataLoad={handleLoad}
       customOnDataPersist={handlePersist}
+      publicKey={import.meta.env.VITE_ONBOARDJS_KEY}
+      apiHost={import.meta.env.VITE_ONBOARDJS_HOST}
     >
       {children}
     </OnboardingProvider>

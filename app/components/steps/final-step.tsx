@@ -26,7 +26,7 @@ export function FinalStep({ className }: React.ComponentProps<"div">) {
         </p>
 
         <div className="max-w-[90vw] w-[900px] border border-input rounded-lg bg-accent/20 text-left flex max-sm:flex-col items-stretch justify-stretch animate-title delay-[0.4s]!">
-          <div className="w-1/3 p-10 border-r border-input grid">
+          <div className="sm:w-1/3 p-10 border-r border-input grid">
             <SquareUserIcon className="size-6 mb-2" />
             <span className="text-md font-semibold">Tell your team</span>
             <div>
@@ -36,7 +36,7 @@ export function FinalStep({ className }: React.ComponentProps<"div">) {
             </div>
           </div>
 
-          <div className="w-1/3 p-10 border-r border-input grid">
+          <div className="sm:w-1/3 p-10 border-r border-input grid">
             <BlocksIcon className="size-6 mb-2" />
             <span className="text-md font-semibold">
               Integrate GitHub & Slack
@@ -48,7 +48,7 @@ export function FinalStep({ className }: React.ComponentProps<"div">) {
             </div>
           </div>
 
-          <div className="w-1/3 p-10 grid">
+          <div className="sm:w-1/3 p-10 grid">
             <CommandIcon className="size-6 mb-2" />
             <span className="text-md font-semibold">Keyboard shortcuts</span>
             <div>
