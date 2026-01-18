@@ -11,29 +11,36 @@ export const steps: OnboardingStep[] = [
   {
     id: "workspace",
     component: WorkspaceStep,
+    nextStep: "welcome",
   },
   {
     id: "welcome",
     component: WelcomeStep,
+    nextStep: "style-choice",
   },
   {
     id: "style-choice",
     component: StyleChoice,
+    nextStep: "command",
   },
   {
     id: "command",
     component: CommandStep,
+    nextStep: "github",
   },
   {
     id: "github",
     component: GitHubStep,
+    nextStep: "invite",
   },
   {
     id: "invite",
     component: InviteStep,
+    nextStep: "subscribe",
   },
   {
     id: "subscribe",
     component: SubscribeStep,
+    nextStep: null,
   },
 ];
