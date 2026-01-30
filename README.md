@@ -1,9 +1,3 @@
-**Cut it in half.** This README is a documentation site disguised as a quick start. Users landing here from your "meta onboarding" want to **clone and run**, not read an integration guide.
-
-Here’s the brutal edit:
-
----
-
 # OnboardJS Vite Starter
 
 **Linear-style onboarding for React apps.** One command to clone, one click to deploy.
